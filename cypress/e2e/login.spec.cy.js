@@ -13,7 +13,7 @@ describe('Orange HRM Tests', () => {
 
 
   it('Login - success', () => { // O skip é pra pular esse código
-    cy.visit('/auth/login')
+    cy.visit('/auth/login')  //"A URL base, enviei para cypress.config.js"
     cy.get(selectorslist.usernameField).type(userData.userSucess.username)
     cy.get(selectorslist.passwordField).type(userData.userSucess.password)
     cy.get(selectorslist.loginButton).click()
