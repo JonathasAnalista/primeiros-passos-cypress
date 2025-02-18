@@ -13,7 +13,7 @@ describe('Orange HRM Tests', () => {
 
 
   it('Login - success', () => { // O skip é pra pular esse código
-    cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+    cy.visit('/auth/login')
     cy.get(selectorslist.usernameField).type(userData.userSucess.username)
     cy.get(selectorslist.passwordField).type(userData.userSucess.password)
     cy.get(selectorslist.loginButton).click()
@@ -21,7 +21,7 @@ describe('Orange HRM Tests', () => {
     cy.get(selectorslist.dashboardGrid)
   })
   it('Login - fail', () => {
-    cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+    cy.visit('/auth/login')
     cy.get(selectorslist.usernameField).type(userData.userFail.username)
     cy.get(selectorslist.passwordField).type(userData.userFail.password)
     cy.get(selectorslist.loginButton).click()
