@@ -16,6 +16,9 @@ describe('Orange HRM Tests', () => {
     //  como selecionar o quinto elemento  da lista de atributos... usei o nome generic porque eles
     // nao é único
     dateField: "[placeholder='yyyy- dd - mm']",
+    genericComboBox: ".oxd-select-text--arrow",
+    quintoItemComboBox: '.oxd-select-dropdown > :nth-child(5)',
+    segundoItemComboBox: '.oxd-select-dropdown > :nth-child(2)',
     dateCloseButton: '.--close',
     submitButton: "[type = 'submit']",
   }
@@ -40,9 +43,16 @@ describe('Orange HRM Tests', () => {
     cy.get(selectorslist.dateCloseButton).click()
     //cy.get(selectorslist.genericField).eq(7).clear().type("ssnNumberTest")
     cy.get(selectorslist.genericField).eq(8).clear().type("TestFiled")
-    cy.get(selectorslist.submitButton).eq(1).click()
+    cy.get(selectorslist.submitButton).eq(1).click({ force: true })
     cy.get('body').should('contain', 'Successfully Saved')
     cy.get('.oxd-toast-close')
+
+    cy.get(selectorslist.genericComboBox).eq(0).click({ force: true })
+    cy.get(selectorslist.quintoItemComboBox).click()
+    cy.get(selectorslist.genericComboBox).eq(1).click({ force: true })
+    cy.get(selectorslist.segundoItemComboBox).click()
+
+
   })
 
   it('Login - fail', () => {
