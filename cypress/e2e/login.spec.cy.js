@@ -12,9 +12,7 @@ describe('Orange HRM Tests', () => {
     myInfoButton: '[href="/web/index.php/pim/viewMyDetails"]',
     firstNameField: '[name="firstName"]',
     lastNameField: '[name="lastName"]',
-    genericField: ".oxd-input--active", //..campo que nao tinha mais no site porém pra lembrar
-    //  como selecionar o quinto elemento  da lista de atributos... usei o nome generic porque eles
-    // nao é único
+    genericField: ".oxd-input--active", // usei o nome generic porque esse elemento e usado em varios campos do código assim posso chamar usando eq()
     dateField: "[placeholder='yyyy- dd - mm']",
     genericComboBox: ".oxd-select-text--arrow",
     quintoItemComboBox: '.oxd-select-dropdown > :nth-child(5)',
@@ -34,8 +32,6 @@ describe('Orange HRM Tests', () => {
     cy.get(selectorslist.myInfoButton).click()
     cy.get(selectorslist.firstNameField).clear().type('FirstNameTest')
     cy.get(selectorslist.lastNameField).clear().type('LastNameTest')
-    //cy.get(selectorslist.genericField).eq(4).type("NickNameTest")... pegando o quinto atributo
-    //  da lista de elementos
     cy.get(selectorslist.genericField).eq(3).clear().type("emploTest")
     cy.get(selectorslist.genericField).eq(4).clear().type("otherIdTest")
     cy.get(selectorslist.genericField).eq(5).clear().type("drivers license Number Test")
@@ -46,7 +42,6 @@ describe('Orange HRM Tests', () => {
     cy.get(selectorslist.submitButton).eq(1).click({ force: true })
     cy.get('body').should('contain', 'Successfully Saved')
     cy.get('.oxd-toast-close')
-
     cy.get(selectorslist.genericComboBox).eq(0).click({ force: true })
     cy.get(selectorslist.quintoItemComboBox).click()
     cy.get(selectorslist.genericComboBox).eq(1).click({ force: true })
