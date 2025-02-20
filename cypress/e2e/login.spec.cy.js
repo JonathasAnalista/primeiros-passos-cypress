@@ -22,8 +22,13 @@ describe('Orange HRM Tests', () => {
   }
 
 
+<<<<<<< HEAD
   it.only('User Info Update - Sucess', () => { // O metodo only é pra chamar só esse it
     cy.visit('/auth/login')
+=======
+  it('Login - success', () => { // O skip é pra pular esse código
+    cy.visit('/auth/login')  //"A URL base, enviei para cypress.config.js"
+>>>>>>> 3f8556b3a68e61597f2c912ae07a376b234b3162
     cy.get(selectorslist.usernameField).type(userData.userSucess.username)
     cy.get(selectorslist.passwordField).type(userData.userSucess.password)
     cy.get(selectorslist.loginButton).click()
